@@ -10,7 +10,7 @@ export class TelegramController {
     ) {}
 
     @Post('telegram')
-    async forTelegramHook(@Body() payload){
+    async forTelegramHook(@Body() payload): Promise<any>{
         return await this.commandBus.execute(new TelegramMessageCommand(payload))
     }
 } 
